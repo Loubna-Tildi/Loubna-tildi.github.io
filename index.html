@@ -5,8 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Portfolio Académique — Tildi Loubna</title>
 
-
-
 <style>
   :root {
     --ink: #16223B;
@@ -45,7 +43,6 @@
     font-family: 'IBM Plex Mono', 'Courier New', monospace;
   }
 
-  /* ---------- Header / letterhead ---------- */
   header {
     background: var(--ink);
     color: var(--paper);
@@ -113,7 +110,6 @@
     background: linear-gradient(90deg, var(--gold-soft), transparent 70%);
   }
 
-  /* ---------- Filters ---------- */
   .filters-wrap {
     max-width: 780px;
     margin: -1.6rem auto 0;
@@ -153,7 +149,6 @@
     color: var(--paper);
   }
 
-  /* ---------- Catalog entries ---------- */
   main {
     max-width: 780px;
     margin: 0 auto;
@@ -254,19 +249,11 @@
 
   .entry-links a:hover::before { transform: translateX(3px); }
 
-  .entry-links a.disabled {
-    color: #B8B6AA;
-    pointer-events: none;
-  }
-
-  .entry-links a.disabled::before { color: #B8B6AA; }
-
   @media (max-width: 560px) {
     .entry { grid-template-columns: 1fr; gap: 0.5rem; }
     .entry-code { padding-top: 0; }
   }
 
-  /* ---------- Footer ---------- */
   footer {
     text-align: center;
     padding: 2.5rem 1.5rem 3rem;
@@ -296,64 +283,73 @@
     </div>
     <div class="rule bottom"></div>
   </div>
-<header>
+</header>
 
-   
-    <!-- ============ PROJET 2 (exemple : sans app en ligne) ============ -->
-    <article class="entry" data-tags="algo, c++">
-      <div class="entry-code mono">ALG301 · 2023</div>
-      <div class="entry-body">
-        <h3>Pricing d'Options Européennes:
-            Comparaison du Schéma d'Euler-Maruyama et de la Méthode de Monte Carlo</h3>
-        <p class="desc">
-          Étude comparative de deux méthodes numériques pour la simulation du Mouvement Brownien Géométrique:
-          solution exacte Monte Carlo et schéma d'Euler-Maruyama et application au pricing d'options européennes, validée contre Black-Scholes,
-          et accélération des simulations via un modèle de machine learning (Processus Gaussien).
-        </p>
-        <div class="tags">
-          <span class="tag">python</span>
-          <span class="tag">Algorithmique</span>
-        </div>
-        <div class="entry-links">
-          <a href="https://github.com/Loubna-Tildi/projet2/blob/main/rapport.pdf" target="_blank" rel="noopener">Rapport</a>
-          <a href="https://loubna-tildi.github.io/projet2/" target="_blank" rel="noopener">App</a>
-        </div>
-      </div>
-    </article>
+<div class="filters-wrap">
+  <div class="filters" id="filters">
+    <button class="filter-btn active" data-filter="all">Tous</button>
+  </div>
+</div>
 
-    <!-- ============ PROJET 3 (exemple : web) ============ -->
-    <article class="entry" data-tags="web, javascript">
+<main>
+  <section class="catalog">
+    <h2>Catalogue des projets</h2>
+
+    <!-- ============ PROJET 1 : Modélisation Stochastique (Streamlit) ============ -->
+    <article class="entry" data-tags="python, streamlit, finance">
       <div class="entry-code mono">WEB210 · 2023</div>
       <div class="entry-body">
-        <h3>Modélisation Stochastique et Valorisation d’Options</h3>
+        <h3>Modélisation Stochastique et Valorisation d'Options</h3>
         <p class="desc">
-       Développer une interface web interactive de simulation de processus stochastiques et de valorisation d'options européennes 
-          par la méthode de Monte Carlo.
+          Développer une interface web interactive de simulation de processus stochastiques et de valorisation
+          d'options européennes par la méthode de Monte Carlo.
         </p>
-      <div class="tags">
-         <span class="tag">Python</span>
-         <span class="tag">Streamlit</span>
-         <span class="tag">Finance quantitative</span>
-      </div>
+        <div class="tags">
+          <span class="tag">Python</span>
+          <span class="tag">Streamlit</span>
+          <span class="tag">Finance quantitative</span>
+        </div>
         <div class="entry-links">
+          <a href="https://github.com/Loubna-tildi/modelisation-stochastique-options" target="_blank" rel="noopener">Code</a>
           <a href="https://github.com/Loubna-tildi/modelisation-stochastique-options/blob/main/rapport.pdf" target="_blank" rel="noopener">Rapport</a>
           <a href="https://modelisation-stochastique-options-6qdhl85sv42euhg5aouqjr.streamlit.app/" target="_blank" rel="noopener">App</a>
         </div>
       </div>
     </article>
 
-    <!-- Duplique un bloc <article class="entry"> ci-dessus pour chaque nouveau projet -->
+    <!-- ============ PROJET 2 : Pricing d'Options (HTML/CSS/JS) ============ -->
+    <article class="entry" data-tags="python, finance, monte-carlo, machine-learning">
+      <div class="entry-code mono">FIN301 · 2024</div>
+      <div class="entry-body">
+        <h3>Pricing d'Options Européennes : Comparaison du Schéma d'Euler-Maruyama et de la Méthode de Monte Carlo</h3>
+        <p class="desc">
+          Étude comparative de deux méthodes numériques pour la simulation du Mouvement Brownien Géométrique :
+          solution exacte Monte Carlo et schéma d'Euler-Maruyama, appliquée au pricing d'options européennes,
+          validée contre Black-Scholes, avec accélération des simulations via un modèle de machine learning
+          (Processus Gaussien).
+        </p>
+        <div class="tags">
+          <span class="tag">Python</span>
+          <span class="tag">Monte Carlo</span>
+          <span class="tag">Machine Learning</span>
+        </div>
+        <div class="entry-links">
+          <a href="https://github.com/Loubna-Tildi/projet2" target="_blank" rel="noopener">Code</a>
+          <a href="https://github.com/Loubna-Tildi/projet2/blob/main/rapport.pdf" target="_blank" rel="noopener">Rapport</a>
+          <a href="https://loubna-tildi.github.io/projet2/" target="_blank" rel="noopener">App</a>
+        </div>
+      </div>
+    </article>
 
   </section>
 </main>
 
 <footer>
   Fait avec soin par Tildi Loubna — dernière mise à jour : 2026 ·
-  <a href="https://github.com/Loubna-tildi">github.com/Projects</a>
+  <a href="https://github.com/Loubna-tildi">github.com/Loubna-tildi</a>
 </footer>
 
 <script>
-  // Génère les boutons de filtre à partir des tags présents dans les projets
   const entries = Array.from(document.querySelectorAll('.entry'));
   const filtersEl = document.getElementById('filters');
   const tagSet = new Set();
@@ -388,3 +384,4 @@
 
 </body>
 </html>
+
