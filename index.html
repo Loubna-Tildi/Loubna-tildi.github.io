@@ -85,23 +85,26 @@
 
   .header-links {
     display: flex;
-    gap: 1.4rem;
+    gap: 0.6rem;
     flex-wrap: wrap;
   }
 
   .header-links a {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.78rem;
     color: var(--paper);
     text-decoration: none;
-    font-size: 0.92rem;
-    border-bottom: 1px solid rgba(255,255,255,0.35);
-    padding-bottom: 2px;
-    transition: border-color 0.2s ease, color 0.2s ease;
+    border: 1px solid rgba(255,255,255,0.3);
+    padding: 0.4rem 0.9rem;
+    border-radius: 999px;
+    transition: all 0.15s ease;
   }
 
   .header-links a:hover,
   .header-links a:focus-visible {
     border-color: var(--gold-soft);
-    color: var(--gold-soft);
+    background: var(--gold-soft);
+    color: var(--ink);
   }
 
   .letterhead .rule.bottom {
@@ -288,6 +291,8 @@
 <div class="filters-wrap">
   <div class="filters" id="filters">
     <button class="filter-btn active" data-filter="all">Tous</button>
+    <button class="filter-btn" data-filter="Finance quantitative">Finance quantitative</button>
+    <button class="filter-btn" data-filter="Data science">Data science</button>
   </div>
 </div>
 
@@ -296,7 +301,7 @@
     <h2>Catalogue des projets</h2>
 
     <!-- ============ PROJET 1 : Modélisation Stochastique (Streamlit) ============ -->
-    <article class="entry" data-tags="python, streamlit, finance">
+    <article class="entry" data-category="Finance quantitative">
       <div class="entry-code mono">WEB210 · 2023</div>
       <div class="entry-body">
         <h3>Modélisation Stochastique et Valorisation d'Options</h3>
@@ -318,7 +323,7 @@
     </article>
 
     <!-- ============ PROJET 2 : Pricing d'Options (HTML/CSS/JS) ============ -->
-    <article class="entry" data-tags="python, finance, monte-carlo, machine-learning">
+    <article class="entry" data-category="Finance quantitative">
       <div class="entry-code mono">FIN301 · 2024</div>
       <div class="entry-body">
         <h3>Pricing d'Options Européennes : Comparaison du Schéma d'Euler-Maruyama et de la Méthode de Monte Carlo</h3>
@@ -352,19 +357,6 @@
 <script>
   const entries = Array.from(document.querySelectorAll('.entry'));
   const filtersEl = document.getElementById('filters');
-  const tagSet = new Set();
-
-  entries.forEach(e => {
-    e.dataset.tags.split(',').map(t => t.trim()).forEach(t => tagSet.add(t));
-  });
-
-  tagSet.forEach(tag => {
-    const btn = document.createElement('button');
-    btn.className = 'filter-btn';
-    btn.dataset.filter = tag;
-    btn.textContent = tag;
-    filtersEl.appendChild(btn);
-  });
 
   filtersEl.addEventListener('click', (e) => {
     const btn = e.target.closest('.filter-btn');
@@ -375,8 +367,7 @@
 
     const filter = btn.dataset.filter;
     entries.forEach(entry => {
-      const tags = entry.dataset.tags.split(',').map(t => t.trim());
-      const show = filter === 'all' || tags.includes(filter);
+      const show = filter === 'all' || entry.dataset.category === filter;
       entry.style.display = show ? 'grid' : 'none';
     });
   });
